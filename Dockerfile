@@ -1,4 +1,4 @@
-# jupyer-scala
+# Jupyter Notebook with jupyter-scala
 # https://github.com/alexarchambault/jupyter-scala
 #
 # Based on python3, java8, scala 2.11.7
