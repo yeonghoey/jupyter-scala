@@ -19,4 +19,5 @@ docker run --rm -it -p 8888:8888 -v "$(pwd):/notebooks" dockoey/jupyter-scala
 <br>
 
 ### Resources
-  * [Examples](https://github.com/alexarchambault/jupyter-scala/tree/master/examples) provided by `jupyter-scala`
+  * [README](https://github.com/alexarchambault/jupyter-scala/tree/topic/update-readme) for a new version usage
+  * [Examples](https://github.com/alexarchambault/jupyter-scala/tree/master/examples) based on an old version
