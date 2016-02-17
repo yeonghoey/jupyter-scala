@@ -27,7 +27,7 @@ RUN curl -L -o jupyter-scala https://git.io/vzhRi \
 # Running jupyter notebook in docker has an issue.
 # https://github.com/ipython/ipython/issues/7062
 
-# juypter notebook only works correctly by
+# juypter notebook only works correctly in docker by
 # starting it with a parameterized innter script.
 
 RUN { echo '#!/bin/bash'; \
