@@ -24,7 +24,7 @@ RUN curl -L -o jupyter-scala https://git.io/vzhRi \
  && rm -f jupyter-scala
 
 
-# Running jupyter notebook in docker has an issue.
+# Running Jupyter Notebook in docker has an issue.
 # https://github.com/ipython/ipython/issues/7062
 
 # According to the discussion above,
