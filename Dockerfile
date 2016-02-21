@@ -2,7 +2,7 @@
 # https://github.com/alexarchambault/jupyter-scala
 #
 # Based on python3, java8
-# Supporting Kernel: python3, scala211, scala210
+# Supporting kernel: python3, scala211, scala210
 
 FROM java:8
 
