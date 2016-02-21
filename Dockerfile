@@ -29,11 +29,11 @@ RUN curl -L -o jupyter-scala-2.10 https://git.io/vzhR7 \
  && ./jupyter-scala-2.10 \
  && rm -f jupyter-scala-2.10
 
-# Running jupyter notebook in docker has an issue.
+# Running Jupyter Notebook in docker has an issue.
 # https://github.com/ipython/ipython/issues/7062
 
-# juypter notebook only works correctly by
-# starting it with a parameterized innter script.
+# According to the discussion above,
+# it only works correctly when it starts with a parameterized innter script.
 
 RUN { echo '#!/bin/bash'; \
       echo 'jupyter notebook --ip=* --no-browser'; \
