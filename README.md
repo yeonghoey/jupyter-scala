@@ -4,7 +4,7 @@
 
 ### What you get
   * [Jupyter](http://jupyter.readthedocs.org/en/latest/install.html) based on `python3`
-  * [jupyter-scala](https://github.com/alexarchambault/jupyter-scala) `2.11.7` based on [java:8](https://hub.docker.com/_/java/)
+  * [jupyter-scala](https://github.com/alexarchambault/jupyter-scala) kernel `2.11`, `2.10` based on [java:8](https://hub.docker.com/_/java/)
 
 ### Usage
 
