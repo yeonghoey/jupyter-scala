@@ -13,17 +13,16 @@ RUN curl -L -o jupyter-scala https://git.io/vzhRi \
 '''.strip()
 
 params = {
-        'scala210': {
-            'from'                  : 'java:7',
-            'jupyter_scala_install' : jupyterscala210_install },
-        'scala211': {
-            'from'                  : 'java:8',
-            'jupyter_scala_install' : jupyterscala211_install }
-        }
+    'scala210': {
+        'from'                  : 'java:7',
+        'jupyter_scala_install' : jupyterscala210_install },
+    'scala211': {
+        'from'                  : 'java:8',
+        'jupyter_scala_install' : jupyterscala211_install }
+}
 
 
 from string import Template
-
 template = Template(r'''
 # Jupyter Notebook with jupyter-scala
 # https://github.com/alexarchambault/jupyter-scala
@@ -41,7 +40,7 @@ RUN apt-get update \
 
 RUN pip3 install jupyter
 
-${jupyter_scala_install}
+$jupyter_scala_install
 
 # Running Jupyter Notebook in docker has an issue.
 # https://github.com/ipython/ipython/issues/7062
@@ -61,5 +60,9 @@ EXPOSE 8888
 CMD ["/entrypoint.sh"]
 '''.strip())
 
-print template.safe_substitute(params['scala210'])
-print template.safe_substitute(params['scala210'])
+
+from os import path, mkdir
+for k, v in params.iteritems():
+    if not path.exists(k): mkdir(k)
+    with open(path.join(k, 'Dockerfile'), 'w') as f:
+        f.write(template.safe_substitute(v))
