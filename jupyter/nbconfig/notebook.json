@@ -1,5 +1,8 @@
 {
-  CodeCell:{
-    cm_config: { indentUnit:2 }
+  "CodeCell": {
+    "cm_config": {
+      "indentUnit": 2,
+      "smartIndent": false
+    }
   }
 }
