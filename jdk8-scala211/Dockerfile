@@ -12,7 +12,7 @@ RUN apt-get update \
     python3-pip \
  && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install jupyter
+RUN pip3 install jupyter click
 
 RUN curl -L -o jupyter-scala https://git.io/vzhRi \
  && chmod +x jupyter-scala \
@@ -28,13 +28,14 @@ RUN mkdir -p $NBCONFIG \
       echo '}}'; \
     } > /$NBCONFIG/notebook.json
 
-# Running Jupyter Notebook in docker has an issue.
-# https://github.com/ipython/ipython/issues/7062
+# Add entry point which runs `bootstrap.py` before launch jupyter notebook.
+# It provides convenient settings for ip and password at runtime.
+COPY bootstrap.py /bootstrap.py
 
-# According to the discussion above,
-# it only works correctly when it starts with a parameterized innter script.
 RUN { echo '#!/bin/bash'; \
-      echo 'jupyter notebook --ip=* --no-browser'; \
+      echo 'set -e'; \
+      echo 'python3 /bootstrap.py'; \
+      echo 'jupyter notebook'; \
     } > /entrypoint.sh \
  && chmod +x /entrypoint.sh
 

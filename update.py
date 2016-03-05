@@ -45,7 +45,7 @@ RUN apt-get update \
     python3-pip \
  && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install jupyter
+RUN pip3 install jupyter click
 
 $jupyter_scala_install
 
@@ -58,13 +58,14 @@ RUN mkdir -p $NBCONFIG \
       echo '}}'; \
     } > /$NBCONFIG/notebook.json
 
-# Running Jupyter Notebook in docker has an issue.
-# https://github.com/ipython/ipython/issues/7062
+# Add entry point which runs `bootstrap.py` before launch jupyter notebook.
+# It provides convenient settings for ip and password at runtime.
+COPY bootstrap.py /bootstrap.py
 
-# According to the discussion above,
-# it only works correctly when it starts with a parameterized innter script.
 RUN { echo '#!/bin/bash'; \
-      echo 'jupyter notebook --ip=* --no-browser'; \
+      echo 'set -e'; \
+      echo 'python3 /bootstrap.py'; \
+      echo 'jupyter notebook'; \
     } > /entrypoint.sh \
  && chmod +x /entrypoint.sh
 
@@ -77,8 +78,34 @@ CMD ["/entrypoint.sh"]
 '''.strip())
 
 
+bootstrap = r'''
+import click
+from notebook.auth import passwd
+
+def pwline():
+    if click.confirm('Do you want to use password?'):
+        pw = passwd()
+        return r"c.NotebookApp.password = '{}'".format(pw)
+    else:
+        return ''
+
+from os import path, mkdir
+JUPYTERBASE = '/root/.jupyter'
+CONFIGFILE = 'jupyter_notebook_config.py'
+
+if not path.exists(JUPYTERBASE): mkdir(JUPYTERBASE)
+with open(path.join(JUPYTERBASE, CONFIGFILE), 'w') as f:
+    f.write('\n'.join([
+        r"c.NotebookApp.ip = '*'",
+        r"c.NotebookApp.open_browser = False",
+        pwline()
+    ]))
+'''.strip()
+
 from os import path, mkdir
 for k, v in params.iteritems():
     if not path.exists(k): mkdir(k)
     with open(path.join(k, 'Dockerfile'), 'w') as f:
         f.write(template.safe_substitute(v))
+    with open(path.join(k, 'bootstrap.py'), 'w') as f:
+        f.write(bootstrap)
