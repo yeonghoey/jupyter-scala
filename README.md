@@ -12,8 +12,8 @@
 
 ```shell
 docker run --rm -it -p 8888:8888 \
-  -v "$(pwd):/notebooks" \
-  -e JUPYTER_PASSWORD=abcd1234 \
+  -v "$(pwd):/notebooks" \         # optional
+  -e JUPYTER_PASSWORD=abcd1234 \   # optional
   dockoey/jupyter-scala
 ```
 
