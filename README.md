@@ -2,10 +2,6 @@
 
 [![](https://badge.imagelayers.io/dockoey/jupyter-scala:latest.svg)](https://imagelayers.io/?images=dockoey/jupyter-scala:latest 'Get your own badge on imagelayers.io')
 
-### What you get
-  * [Jupyter](http://jupyter.readthedocs.org/en/latest/install.html) based on `python3`
-  * [jupyter-scala](https://github.com/alexarchambault/jupyter-scala) kernel `2.11`, `2.10` based on [java:8](https://hub.docker.com/_/java/)
-
 ### Usage
 
 ```shell
