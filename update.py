@@ -13,10 +13,20 @@ RUN curl -L -o jupyter-scala https://git.io/vzhRi \
 '''.strip()
 
 params = {
-    'scala210': {
+    'jdk6-scala210': {
+        'from'                  : 'java:6',
+        'jupyter_scala_install' : jupyterscala210_install },
+    'jdk7-scala210': {
         'from'                  : 'java:7',
         'jupyter_scala_install' : jupyterscala210_install },
-    'scala211': {
+
+    'jdk6-scala211': {
+        'from'                  : 'java:6',
+        'jupyter_scala_install' : jupyterscala211_install },
+    'jdk7-scala211': {
+        'from'                  : 'java:7',
+        'jupyter_scala_install' : jupyterscala211_install },
+    'jdk8-scala211': {
         'from'                  : 'java:8',
         'jupyter_scala_install' : jupyterscala211_install }
 }
