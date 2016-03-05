@@ -3,10 +3,10 @@
 [![](https://badge.imagelayers.io/dockoey/jupyter-scala:latest.svg)](https://imagelayers.io/?images=dockoey/jupyter-scala:latest 'Get your own badge on imagelayers.io')
 
 ### Supported Tags
-* `jdk7-scala210`
-* `jdk8-scala210` 
-* `jdk7-scala211`, `latest`
-* `jdk8-scala211`
+* `210.jdk7`
+* `210.jdk8` 
+* `211.jdk7`, `latest`
+* `211.jdk8`
 
 ### Usage
 
