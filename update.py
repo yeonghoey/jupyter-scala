@@ -42,6 +42,15 @@ RUN pip3 install jupyter
 
 $jupyter_scala_install
 
+# Set indentUnit 2 as scala standard.
+# Off smartIndent because it works weird for scala.
+ENV NBCONFIG /root/.jupyter/nbconfig
+RUN mkdir -p $NBCONFIG \
+ && { echo '{"CodeCell":{"cm_config":'; \
+      echo '{"indentUnit":2,"smartIndent":false}'; \
+      echo '}}'; \
+    } > /$NBCONFIG/notebook.json
+
 # Running Jupyter Notebook in docker has an issue.
 # https://github.com/ipython/ipython/issues/7062
 
