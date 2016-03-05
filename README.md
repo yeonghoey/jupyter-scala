@@ -13,7 +13,7 @@
 ```shell
 docker run --rm -it -p 8888:8888 dockoey/jupyter-scala
 ```
-As daemon:
+as daemon:
 ```shell
 docker run -d -p 8888:8888 dockoey/jupyter-scala
 ```
