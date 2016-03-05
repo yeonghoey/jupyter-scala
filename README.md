@@ -9,11 +9,18 @@
 * `211.jdk8`
 
 ### Usage
+##### Qucik start
+```shell
+docker run --rm -it -p 8888:8888 dockoey/jupyter-scala"
+# or as daemon:
+docker run -d -p 8888:8888 dockoey/jupyter-scala"
+```
 
+##### Full options
 ```shell
 docker run --rm -it -p 8888:8888 \
-  -v "$(pwd):/notebooks" \         # optional
-  -e JUPYTER_PASSWORD=abcd1234 \   # optional
+  -v "$(pwd):/notebooks" \
+  -e JUPYTER_PASSWORD=abcd1234 \
   dockoey/jupyter-scala
 ```
 
