@@ -12,11 +12,13 @@
 ##### Qucik start
 ```shell
 docker run --rm -it -p 8888:8888 dockoey/jupyter-scala
-# as daemon:
+```
+As daemon:
+```shell
 docker run -d -p 8888:8888 dockoey/jupyter-scala
 ```
 
-##### Full options
+##### Ohter options
 ```shell
 docker run --rm -it -p 8888:8888 \
   -v "$(pwd):/notebooks" \
