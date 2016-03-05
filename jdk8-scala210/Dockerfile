@@ -1,7 +1,7 @@
 # Jupyter Notebook with jupyter-scala
 # https://github.com/alexarchambault/jupyter-scala
 
-FROM java:6
+FROM java:8
 
 MAINTAINER Yeongho Kim <yeonghoey@gmail.com>
 
