@@ -11,8 +11,10 @@
 ### Usage
 
 ```shell
-docker run --rm -it -p 8888:8888 -v "$(pwd):/notebooks" dockoey/jupyter-scala
-docker run --rm -it -p 8888:8888 -v "$(pwd):/notebooks" -e JUPYTER_PASSWORD=abcd1234 dockoey/jupyter-scala
+docker run --rm -it -p 8888:8888 \
+  -v "$(pwd):/notebooks" \
+  -e JUPYTER_PASSWORD=abcd1234 \
+  dockoey/jupyter-scala
 ```
 
 ### Note
