@@ -1,6 +1,6 @@
 # Jupyter Notebook with jupyter-scala
 
-[![](https://badge.imagelayers.io/dockoey/jupyter-scala:latest.svg)](https://imagelayers.io/?images=dockoey/jupyter-scala:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/dockoey/jupyter-scala.svg)](https://microbadger.com/images/dockoey/jupyter-scala "Get your own image badge on microbadger.com")
 
 ### Supported Tags
 * `210.jdk7`
