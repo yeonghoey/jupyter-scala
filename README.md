@@ -23,6 +23,6 @@ docker run --rm -it -p 8888:8888 \
 ```
 
 ### Note
-* [jupyter-scala](https://github.com/alexarchambault/jupyter-scala) is currently being updated. Read guides for a [new version](https://github.com/alexarchambault/jupyter-scala/tree/topic/update-readme).
+* Special commands / API for [jupyter-scala](https://github.com/alexarchambault/jupyter-scala#special-commands--api)
 * For editing scala code conveniently, I tinkered default [notebook frontend configuration](http://jupyter-notebook.readthedocs.org/en/latest/frontend_config.html).  
   `indentUnit:2`, `smartIndent:false`
